@@ -1,0 +1,7 @@
+version: '3'
+services:
+  ReactApp:
+    image: priyeshshinav/public-dev-guvi:0.2
+    container_name: ReactShoppingApp
+    ports: 
+      - 80:80
