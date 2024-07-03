@@ -5,7 +5,7 @@ pipeline {
         stage('Build & Push to Docker hub') {
             steps {
                 sh '''# Running Build.sh Script to build and push in to public dockerHub
-                      ./build.sh ${params.IMAGE_BUILD_TAG}'''
+                      ./build.sh ${params.build_tag}'''
             }
         }
         stage('Test') {
