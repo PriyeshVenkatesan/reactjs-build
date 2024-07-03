@@ -2,9 +2,9 @@ pipeline {
     agent any
     
     stages {
-        stage('Build & Push to Docker hub') {
+        stage('Build') {
             steps {
-                sh '''# Running Build.sh Script to build and push in to public dockerHub
+                sh '''# Running Build.sh Script to build 
                       ./build.sh ${BUILD_NUMBER}'''
             }
         }
