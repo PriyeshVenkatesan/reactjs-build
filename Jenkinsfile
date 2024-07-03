@@ -1,10 +1,10 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('Build & Push to Docker hub') {
             steps {
-                echo 'Building...'
-                // Add your build steps here
+                sh '''# Running Build.sh Script to build and push in to public dockerHub
+                      ./build.sh 1.5'''
             }
         }
         stage('Test') {
