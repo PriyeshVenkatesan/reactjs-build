@@ -8,11 +8,11 @@
 docker build -t priyeshshinav/public-dev-guvi:latest -t priyeshshinav/public-dev-guvi:$1 .
 
 # Log in to Docker Hub
-docker login -u priyeshshinav
+#docker login -u priyeshshinav
 
 # Tag the Docker image
-docker tag priyeshshinav/public-dev-guvi:$1 priyeshshinav/public-dev-guvi:$1
+ # docker tag priyeshshinav/public-dev-guvi:$1 priyeshshinav/public-dev-guvi:$1
 
 
 # Push the Docker image to Docker Hub
-docker push priyeshshinav/public-dev-guvi:$1
+# docker push priyeshshinav/public-dev-guvi:$1
