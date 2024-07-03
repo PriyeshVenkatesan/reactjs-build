@@ -2,8 +2,8 @@ pipeline {
     agent any
     parameters {
         string(name: 'IMAGE_BUILD_TAG', defaultValue: latest, description: 'Docker image ')
-        #string(name: 'REGISTRY_URL', defaultValue: 'your-registry-url', description: 'Docker registry URL')
-        #credentials(name: 'DOCKER_CREDENTIALS_ID', defaultValue: 'your-credentials-id', description: 'Credentials for Docker registry')
+        //tring(name: 'REGISTRY_URL', defaultValue: 'your-registry-url', description: 'Docker registry URL')
+        //credentials(name: 'DOCKER_CREDENTIALS_ID', defaultValue: 'your-credentials-id', description: 'Credentials for Docker registry')
     }
     stages {
         stage('Build & Push to Docker hub') {
