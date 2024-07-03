@@ -26,8 +26,8 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying...'
-                // Add your deploy steps here
+                sh '''# Running Deploy.sh Script to deploy
+                      ./deploy.sh'''
             }
         }
     }
