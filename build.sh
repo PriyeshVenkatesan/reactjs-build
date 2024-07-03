@@ -2,7 +2,7 @@
 #read -p "Enter Build Version:" $build_version 
 
 # Navigate to the project directory
-cd /root/app/reactjs-build/
+# cd /root/app/reactjs-build/
 
 # Build the Docker image
 docker build -t priyeshshinav/public-dev-guvi:latest -t priyeshshinav/public-dev-guvi:$1 .
