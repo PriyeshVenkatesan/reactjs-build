@@ -5,7 +5,7 @@ pipeline {
         stage('Build & Push to Docker hub') {
             steps {
                 sh '''# Running Build.sh Script to build and push in to public dockerHub
-                      ./build.sh ${env.BUILD_NUMBER}'''
+                      ./build.sh "${env.BUILD_NUMBER}"'''
             }
         }
         stage('Test') {
