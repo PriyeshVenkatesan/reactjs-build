@@ -24,7 +24,7 @@ pipeline {
                 }
             }
         }
-        stage('Deploy Locally') {
+        stage('Deploy Loc0lly') {
             steps {
                 sh '''# Running Deploy.sh Script to deploy
                       ./deploy.sh'''
