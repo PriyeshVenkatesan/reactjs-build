@@ -40,7 +40,7 @@ pipeline {
                     // Terraform Init
                     sh 'terraform init'
                     // Terraform Validate
-                    sh 'terraform Validate'
+                    sh 'terraform validate'
                     // terraform plan
                     sh 'terraform plan'
                     
