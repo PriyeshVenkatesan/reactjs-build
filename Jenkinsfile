@@ -24,11 +24,31 @@ pipeline {
                 }
             }
         }
-        stage('Deploy') {
+        stage('Deploy Locally') {
             steps {
                 sh '''# Running Deploy.sh Script to deploy
                       ./deploy.sh'''
             }
         }
+      
+         stage('Deploying to remote EC2') {
+            steps {
+                script {
+                    // Deploying to Remote EC2 instance
+                    sh 'echo "Deploying to Remote EC2 Instance"'
+                    
+                    // Terraform Init
+                    sh 'terraform init -input=false'
+                    
+                    // terraform plan
+                    sh 'terraform plan -out=tfplan'
+                    
+                    // terraform apply
+                    sh 'terraform apply tfplan -auto-approve'
+                }
+            }
+        }
     }
+        
+    
 }
