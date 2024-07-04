@@ -38,14 +38,14 @@ pipeline {
                     sh 'echo "Deploying to Remote EC2 Instance"'
                     
                     // Terraform Init
-                    sh ' sudo terraform init'
+                    sh 'terraform init'
                     // Terraform Validate
-                    sh 'sudo terraform validate'
+                    sh 'terraform validate'
                     // terraform plan
-                    sh 'sudo terraform plan'
+                    sh 'terraform plan'
                     
                     // terraform apply
-                    sh 'sudo terraform apply -auto-approve'
+                    sh 'terraform apply -auto-approve'
                 }
             }
         }
