@@ -42,10 +42,10 @@ pipeline {
                     // Terraform Validate
                     sh 'terraform validate'
                     // terraform plan
-                    sh 'terraform plan'
+                    sh 'terraform plan -out=tfplan'
                     
                     // terraform apply
-                    sh 'terraform apply -auto-approve'
+                    sh 'terraform apply -auto-approve tfplan'
                 }
             }
         }
