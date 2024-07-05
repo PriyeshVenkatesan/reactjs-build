@@ -50,10 +50,10 @@ sudo apt-get update
 
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 
-sudo docker run hello-world
+#sudo docker run hello-world
 
 sudo docker info
-sudo docker info
+
 
 # install Docker Compose
 
