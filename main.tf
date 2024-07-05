@@ -10,8 +10,9 @@ terraform {
 }
 
 provider "aws" {
- profile = "default"
- region = "ap-south-1"
+  shared_config_files      = ["/root/.aws/config"]
+  shared_credentials_files = ["/root/.aws/credentials"]
+  profile                  = "default"
 }
 
 resource "aws_instance" "Web_server" {
