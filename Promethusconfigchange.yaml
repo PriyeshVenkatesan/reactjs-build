@@ -1,7 +1,6 @@
 ---
 - name: Update file with new server IP
   hosts: localhost
-  become: yes
   gather_facts: false
   vars:
     instance_name: "ReactJSShoppingAppInstance"  # Replace with your instance name tag
@@ -39,7 +38,3 @@
         src: "{{ src_file_path }}"
         dest: /etc/prometheus/
         backup: yes  # Create a backup of the destination file before replacing
-    - name: Enable and start prometheus service
-      systemd:
-        name: prometheus
-        state: restarted
