@@ -1,0 +1,61 @@
+---
+- name: Install Node Exporter
+  hosts: all  # Adjust to your target hosts group
+  become: yes  # Ensure the tasks are run with sudo
+  vars:
+    node_exporter_version: '1.8.1'  # Adjust to the desired Node Exporter version
+    node_exporter_user: 'prometheus'
+    node_exporter_service: '/etc/systemd/system/node_exporter.service'
+  tasks:
+    - name: Create a node_exporter user
+      user:
+        name: "{{ node_exporter_user }}"
+        shell: /usr/sbin/nologin
+
+    - name: Download Node Exporter
+      get_url:
+        url: "https://github.com/prometheus/node_exporter/releases/download/v{{ node_exporter_version }}/node_exporter-{{ node_exporter_version }}.linux-amd64.tar.gz"
+        dest: /tmp/node_exporter.tar.gz
+
+    - name: Extract Node Exporter
+      unarchive:
+        src: /tmp/node_exporter.tar.gz
+        dest: /opt/
+        remote_src: yes
+
+    - name: Rename extracted directory
+      command: mv /opt/node_exporter-{{ node_exporter_version }}.linux-amd64 /opt/node_exporter
+
+    - name: Set ownership to node_exporter user
+      file:
+        path: /opt/node_exporter
+        state: directory
+        owner: "{{ node_exporter_user }}"
+        group: "{{ node_exporter_user }}"
+        recurse: yes
+
+    - name: Create systemd service file for Node Exporter
+      copy:
+        dest: "{{ node_exporter_service }}"
+        content: |
+          [Unit]
+          Description=Node Exporter
+          Wants=network-online.target
+          After=network-online.target
+
+          [Service]
+          User={{ node_exporter_user }}
+          ExecStart=/opt/node_exporter/node_exporter
+
+          [Install]
+          WantedBy=default.target
+
+    - name: Reload systemd to apply changes
+      command: systemctl daemon-reload
+
+    - name: Enable and start Node Exporter service
+      systemd:
+        name: node_exporter
+        enabled: yes
+        state: started
+
