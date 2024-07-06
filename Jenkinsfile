@@ -54,14 +54,14 @@ pipeline {
             steps {
                 script {
                     // Sleep 45s
-                    sh 'sleep 40s' 
+                    sh 'sleep 25s' 
                     // Monitoring EC2 instance
                     sh 'echo "Monitoring Remote EC2 Instance"'                    
                     // installing node exporter on remote instance
                     sh 'ansible-playbook Node_Exporter.yaml'
                     // installing blackbox exporter on remote instance
                     sh 'ansible-playbook BlackBox_Exporter.yaml'
-					// Configuring Prometheus and restart
+		    // Configuring Prometheus and restart
                     sh 'ansible-playbook Promethusconfigchange.yaml'
                 
                 }
