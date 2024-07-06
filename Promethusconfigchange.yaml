@@ -1,0 +1,43 @@
+---
+- name: Update file with new server IP
+  hosts: localhost
+  gather_facts: false
+  vars:
+    instance_name: "ReactJSShoppingAppInstance"  # Replace with your instance name tag
+    src_file_path: ./prometheus.yml
+    dest_file_path: ./prometheus.yml
+    search_string: "13.126.41.80"
+
+  tasks:
+    - name: Get instance ID using AWS CLI
+      command: >
+        aws ec2 describe-instances --filters "Name=tag:Name,Values={{ instance_name }}" "Name=instance-state-name,Values=running" --query "Reservations[*].Instances[*].InstanceId" --output text
+      register: instance_id_command
+
+    - name: Set instance ID fact
+      set_fact:
+        instance_id: "{{ instance_id_command.stdout }}"
+
+    - name: Gather information about the new EC2 instance
+      amazon.aws.ec2_instance_info:
+        instance_ids: "{{ instance_id }}"
+      register: ec2_info
+
+    - name: Extract the public IP address of the new instance
+      set_fact:
+        new_instance_ip: "{{ ec2_info.instances[0].public_ip_address }}"
+
+    - name: Replace the string in the file with the new server IP
+      replace:
+        path: "{{ dest_file_path }}"
+        regexp: "{{ search_string }}"
+        replace: "{{ new_instance_ip }}"
+    - name: Copy the file to the /etc/prometheus
+      copy:
+        src: "{{ src_file_path }}"
+        dest: /etc/prometheus/
+        backup: yes  # Create a backup of the destination file before replacing
+    - name: Enable and start prometheus service
+      systemd:
+        name: prometheus
+        state: restarted
