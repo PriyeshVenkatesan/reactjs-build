@@ -49,6 +49,26 @@ pipeline {
                 }
             }
         }
+        
+         stage('Monitoring remote EC2') {
+            steps {
+                script {
+                    // Sleep 45s
+                    sh 'sleep 45s' 
+                    // Monitoring EC2 instance
+                    sh 'echo "Monitoring Remote EC2 Instance"'                    
+                    // installing node exporter on remote instance
+                    sh 'ansible-playbook Node_Exporter.yaml'
+                    // installing blackbox exporter on remote instance
+                    sh 'ansible-playbook BlackBox_Exporter.yaml'
+                
+                }
+            }
+        }
+
+
+
+
     }
         
     
