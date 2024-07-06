@@ -21,6 +21,7 @@
     - name: Gather information about the new EC2 instance
       amazon.aws.ec2_instance_info:
         instance_ids: "{{ instance_id }}"
+        region: ap-south-1
       register: ec2_info
 
     - name: Extract the public IP address of the new instance
