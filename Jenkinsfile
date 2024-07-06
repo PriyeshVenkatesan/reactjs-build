@@ -63,7 +63,8 @@ pipeline {
                     sh 'ansible-playbook BlackBox_Exporter.yaml'
 		    // Configuring Prometheus and restart
                     sh 'ansible-playbook Promethusconfigchange.yaml'
-                
+                    // Configuring Prometheus restart
+                    sh 'service prometheus restart'
                 }
             }
         }
