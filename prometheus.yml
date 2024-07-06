@@ -44,7 +44,3 @@ scrape_configs:
         target_label: instance
       - target_label: __address__
         replacement: 13.126.41.80:9115  # Blackbox Exporter's IP and port
-
-~
-~
-~
