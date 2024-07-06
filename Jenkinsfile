@@ -64,7 +64,7 @@ pipeline {
 		    // Configuring Prometheus 
                     sh 'ansible-playbook Promethusconfigchange.yaml'
                     // Configuring Prometheus restart
-                    sh 'ansible-playbook promtheus-restart.yaml'
+                    sh 'ansible-playbook promtheus-restart.yml'
                 }
             }
         }
