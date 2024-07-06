@@ -1,0 +1,16 @@
+---
+- name: Update file with new server IP
+  hosts: localhost
+  become: yes
+  gather_facts: false
+  vars:
+    instance_name: "ReactJSShoppingAppInstance"  # Replace with your instance name tag
+    src_file_path: ./prometheus.yml
+    dest_file_path: ./prometheus.yml
+    search_string: "13.126.41.80"
+
+  tasks:
+    - name: Enable and start prometheus service
+      systemd:
+        name: prometheus
+        state: restarted
