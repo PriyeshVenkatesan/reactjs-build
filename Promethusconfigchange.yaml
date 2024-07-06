@@ -38,8 +38,3 @@
         src: "{{ src_file_path }}"
         dest: /etc/prometheus/
         backup: yes  # Create a backup of the destination file before replacing
-    - name: Enable and start prometheus service
-      systemd:
-        name: prometheus
-        state: restarted
-      become: yes
