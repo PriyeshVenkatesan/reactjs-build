@@ -5,7 +5,7 @@
 # cd /root/app/reactjs-build/
 
 # Build the Docker image
-docker build -t priyeshshinav/public-dev-guvi:latest -t priyeshshinav/public-dev-guvi:$1 .
+docker build -t priyeshshinav/private-prod-guvi:latest -t priyeshshinav/private-prod-guvi:$1 .
 
 # Log in to Docker Hub
 #docker login -u priyeshshinav
