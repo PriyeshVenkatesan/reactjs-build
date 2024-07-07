@@ -31,7 +31,7 @@ user_data = <<-EOF
 sudo mkdir /root/app
      cd /root/app
 #git clone git@github.com:PriyeshVenkatesan/reactjs-build.git
-git clone -b Dev https://github.com/PriyeshVenkatesan/reactjs-build.git
+git clone https://github.com/PriyeshVenkatesan/reactjs-build.git
 
 # Install Docker
 sudo apt-get update
