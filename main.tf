@@ -67,7 +67,7 @@ docker-compose --version
 
 cd /root/app/reactjs-build
 # Deploying ReactJs App
-./deploy.sh
+
 
 EOF
 
