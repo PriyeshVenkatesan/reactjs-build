@@ -24,13 +24,7 @@ pipeline {
                 }
             }
         }
-        stage('Deploy Locally') {
-            steps {
-                sh '''# Running Deploy.sh Script to deploy
-                      ./deploy.sh'''
-            }
-        }
-      
+          
          stage('Deploying to remote EC2') {
             steps {
                 script {
