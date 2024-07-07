@@ -15,7 +15,7 @@ provider "aws" {
   #profile                  = "default"
 }
 
-resource "aws_instance" "Web_server" {
+resource "aws_instance" "Web_server1" {
   ami                    = "ami-0f58b397bc5c1f2e8"
   instance_type          = "t2.micro"
   vpc_security_group_ids = ["sg-000bef1fc959fb341"]
@@ -72,12 +72,12 @@ cd /root/app/reactjs-build
 EOF
 
   tags = {
-    Name = "ReactJSShoppingAppInstance"
+    Name = "ReactJSShoppingAppInstanceProd"
   }
 }
 output "instance_id" {
-  value = aws_instance.Web_server.id
+  value = aws_instance.Web_server1.id
 }
 output "public_ip" {
-  value = aws_instance.Web_server.public_ip
+  value = aws_instance.Web_server1.public_ip
 }
