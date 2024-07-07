@@ -5,3 +5,5 @@ services:
     container_name: ReactShoppingApp
     ports: 
       - 80:80
+    volumes:
+      - /root/.docker/config.json:/root/.docker/config.json
