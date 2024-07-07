@@ -2,7 +2,7 @@ version: '3'
 services:
   ReactApp:
     image: priyeshshinav/private-prod-guvi:latest
-    container_name: ReactShoppingApp
+    container_name: ReactShoppingApp-PROD
     ports: 
       - 80:80
     volumes:
