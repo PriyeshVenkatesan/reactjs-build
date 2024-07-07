@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        DOCKER_IMAGE = "priyeshshinav/public-dev-guvi"
+        DOCKER_IMAGE = "priyeshshinav/private-prod-guvi"
         DOCKER_CREDENTIALS_ID = "dockerhub"
         REGISTRY_URL = "registry.hub.docker.com"
     }
