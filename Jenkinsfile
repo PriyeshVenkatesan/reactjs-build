@@ -54,7 +54,7 @@ pipeline {
                     // installing node exporter on remote instance
                     sh 'ansible-playbook Node_Exporter.yaml'
                     // installing blackbox exporter on remote instance
-                    sh 'ansible-playbook BlackBox_Exporter.yaml'
+                    sh 'ansible-playbook BlackBox_Exporter.yaml -vvv'
 		    // Configuring Prometheus 
                     sh 'ansible-playbook Promethusconfigchange.yaml'
                     // Configuring Prometheus restart
