@@ -58,9 +58,9 @@ pipeline {
                     // Monitoring EC2 instance
                     sh 'echo "Monitoring Remote EC2 Instance"'                    
                     // installing node exporter on remote instance
-                    sh 'ansible-playbook Node_Exporter.yaml'
+                    sh 'ansible-playbook -i aws_ec2.yaml Node_Exporter.yaml'
                     // installing blackbox exporter on remote instance
-                    sh 'ansible-playbook BlackBox_Exporter.yaml'
+                    sh 'ansible-playbook -i aws_ec2.yaml BlackBox_Exporter.yaml'
 		    // Configuring Prometheus 
                     sh 'ansible-playbook Promethusconfigchange.yaml'
                     // Configuring Prometheus restart
