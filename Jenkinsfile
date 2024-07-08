@@ -48,7 +48,7 @@ pipeline {
             steps {
                 script {
                     // Sleep 45s
-                    sh 'sleep 20s' 
+                    sh 'sleep 40s' 
                     // Monitoring EC2 instance
                     sh 'echo "Monitoring Remote EC2 Instance"'                    
                     // installing node exporter on remote instance
