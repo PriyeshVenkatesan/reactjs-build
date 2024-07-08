@@ -5,6 +5,3 @@ services:
     container_name: ReactShoppingApp-PROD
     ports: 
       - 80:80
-    environment:
-         - REGISTRY_USERNAME=priyeshshinav
-         - REGISTRY_PASSWORD=Athiyan@1408
