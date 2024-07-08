@@ -1,6 +1,6 @@
 ---
 - name: Install Node Exporter
-  hosts: tag_ReactJSShoppingAppInstanceProd  # Adjust to your target hosts group
+  hosts: ReactJSShoppingAppInstanceProd  # Adjust to your target hosts group
   become: yes  # Ensure the tasks are run with sudo
   vars:
     node_exporter_version: '1.8.1'  # Adjust to the desired Node Exporter version
