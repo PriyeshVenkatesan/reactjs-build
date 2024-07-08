@@ -1,6 +1,6 @@
 ---
 - name: Install Blackbox Exporter
-  hosts: all  # Adjust to your target hosts group
+  hosts: tag_ReactJSShoppingAppInstanceProd  # Adjust to your target hosts group
   become: yes  # Ensure the tasks are run with sudo
   vars:
     blackbox_exporter_version: '0.25.0'  # Adjust to the desired Blackbox Exporter version
