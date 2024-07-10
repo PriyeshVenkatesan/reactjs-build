@@ -67,7 +67,7 @@ docker-compose --version
 
 cd /root/app/reactjs-build
 # Docker login
-cat secret.txt | docker login --username priyeshshinav --password-stdin
+#cat secret.txt | docker login --username priyeshshinav --password-stdin
 # Deploying ReactJs App
 ./deploy.sh
 
